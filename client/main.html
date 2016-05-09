@@ -1,0 +1,31 @@
+<head> 
+    <title>DRUGS</title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
+<body background="med.png"> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+</body> 
+<template name="hello"> 
+<h1>Welcome to Meteor!</h1> 
+  <form id = "f1" class="navbar-form navbar-left" role="search"> 
+  <div class="form-group"> 
+    <input type="text" class="form-control" id="drug" placeholder="Search"> 
+  </div>
+</form> 
+{{> list }} 
+</template> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<template name="list"> 
+    <ul> 
+		<div class="btn-group-vertical" style="padding-top: 50px;"> 
+        {{#each resolutions}} 
+        {{> btn}} 
+        {{/each}} 
+		</div>
+    </ul> 
+</template> 
+<template name="btn">
+<button type="button" class="btn btn-sm btn-danger col-md-4" id="idss" value = "{{this.primaryid}}@@@{{this.drugname}}">{{this.primaryid}}@@@{{this.drugname}}</button>
+</template>

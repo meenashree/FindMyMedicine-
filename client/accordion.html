@@ -1,0 +1,188 @@
+<template name="display1">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingOne">
+		<h4 class="panel-title">
+			<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			<span id = "oneSpan" class="glyphicon glyphicon-plus" aria-hidden="true"></span>NIH - RxTerms
+			</a>
+		</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <table class="table table-striped" border = "1">
+		<tr>
+			<th>TTY</th>
+			<th>STRENGTH</th>
+			<th>DISPLAY_NAME</th>
+			<th>RXN_DOSE_FORM</th>
+			<th>RXCUI</th>
+			<th>SXDG_NAME</th>
+			<th>ROUTE</th>
+			<th>BRAND_NAME</th>
+			<th>FULL_GENERIC_NAME</th>
+			<th>SUPPRESS_FOR</th>
+			<th>FULL_NAME</th>
+			<th>IS_RETIRED</th>
+			<th>DISPLAY_NAME_SYNONYM</th>
+			<th>GENERIC_RXCUI</th>
+			<th>SXDG_TTY</th>
+			<th>NEW_DOSE_FORM</th>
+			<th>SXDG_RXCUI</th></tr>
+			{{#each res1}}
+			<tr>
+			<td>{{this.TTY}}</td>
+			<td>{{this.STRENGTH}}</td> 
+			<td>{{this.DISPLAY_NAME}}</td>
+			<td>{{this.RXN_DOSE_FORM}}</td>
+			<td>{{this.RXCUI}}</td>
+			<td>{{this.SXDG_NAME}}</td>
+			<td>{{this.ROUTE}}</td>
+			<td>{{this.BRAND_NAME}}</td>
+			<td>{{this.FULL_GENERIC_NAME}}</td>
+			<td>{{this.SUPPRESS_FOR}}</td>
+			<td>{{this.FULL_NAME}}</td>
+			<td>{{this.IS_RETIRED}}</td>
+			<td>{{this.DISPLAY_NAME_SYNONYM}}</td>
+			<td>{{this.GENERIC_RXCUI}}</td>
+			<td>{{this.SXDG_TTY}}</td>
+			<td>{{this.NEW_DOSE_FORM}}</td>
+			<td>{{this.SXDG_RXCUI}}</td> 
+			</tr>
+			{{/each}}
+		</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <span id = "twoSpan" class="glyphicon glyphicon-plus" aria-hidden="true"></span>VA - National Drug File
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+      <h1>NDF</h1>
+	  {{#each d in res8}}
+	  <table border="1">
+	  {{#each keyval d}}
+	  <tr>
+	  <th>{{ key }}</th>
+	  <td>{{ value }}</td>
+	  </tr>
+	  {{/each}}
+	  </table>
+	  <hr noshade>
+	  {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <span id = "threeSpan" class="glyphicon glyphicon-plus" aria-hidden="true"></span>FDA - Adverse Event Reporting
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        {{#each res2}} 
+			<p>pt: {{this.pt}}</p> 
+		{{/each}}
+		
+      </div>
+      <div class="panel-body">
+        
+		{{#each res3}} 
+			<p>outc_cod: {{this.outc_cod}}</p> 
+		{{/each}}
+      </div>
+      <div class="panel-body">
+        
+		{{#each res4}} 
+			<p>indi_pt: {{this.indi_pt}}</p> 
+		{{/each}}
+      </div>
+      <div class="panel-body">
+        
+		{{#each res5}} 
+			<p>rpsr_cod: {{this.rpsr_cod}}</p> 
+		{{/each}}
+      </div>
+      <div class="panel-body">
+       <table class="table" border = "1"><tr>
+			<th>dose_freq</th>
+			<th>role_cod</th>
+			<th>cum_dose_unit</th>
+			<th>drug_seq</th>
+			<th>dechal</th>
+			<th>route</th>
+			<th>dose_vbm</th>
+			<th>caseid</th>
+			<th>dose_unit</th>
+			<th>nda_num</th>
+			<th>cum_dose_chr</th>
+			<th>dose_amt</th>
+			<th>val_vbm</th>
+			<th>prod_ai</th>
+			<th>dose_form</th>
+			<th>rechal</th>
+			<th>exp_dt</th></tr>
+			{{#each res6}}
+			<tr>
+			<td>{{this.dose_freq}}</td>
+			<td>{{this.role_cod}}</td> 
+			<td>{{this.cum_dose_unit}}</td>
+			<td>{{this.drug_seq}}</td>
+			<td>{{this.dechal}}</td>
+			<td>{{this.route}}</td>
+			<td>{{this.dose_vbm}}</td>
+			<td>{{this.caseid}}</td>
+			<td>{{this.dose_unit}}</td>
+			<td>{{this.nda_num}}</td>
+			<td>{{this.cum_dose_chr}}</td>
+			<td>{{this.dose_amt}}</td>
+			<td>{{this.val_vbm}}</td>
+			<td>{{this.prod_ai}}</td>
+			<td>{{this.dose_form}}</td>
+			<td>{{this.rechal}}</td>
+			<td>{{this.exp_dt}}</td> 
+			</tr>
+			{{/each}}
+		</table>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$(function () { 
+      $('#collapseOne').on('show.bs.collapse', function () {
+         $('#oneSpan').removeClass('glyphicon-plus');
+        $('#oneSpan').addClass('glyphicon-minus');
+      }),
+     $('#collapseOne').on('hide.bs.collapse', function () {
+         $('#oneSpan').removeClass('glyphicon-minus');
+        $('#oneSpan').addClass('glyphicon-plus');
+      }),
+     $('#collapseTwo').on('show.bs.collapse', function () {
+         $('#twoSpan').removeClass('glyphicon-plus');
+        $('#twoSpan').addClass('glyphicon-minus');
+      }),
+     $('#collapseTwo').on('hide.bs.collapse', function () {
+         $('#twoSpan').removeClass('glyphicon-minus');
+        $('#twoSpan').addClass('glyphicon-plus');
+      }),
+     $('#collapseThree').on('show.bs.collapse', function () {
+         $('#threeSpan').removeClass('glyphicon-plus');
+        $('#threeSpan').addClass('glyphicon-minus');
+      }),
+     $('#collapseThree').on('hide.bs.collapse', function () {
+         $('#threeSpan').removeClass('glyphicon-minus');
+        $('#threeSpan').addClass('glyphicon-plus');
+      })
+   });
+</script>
+</template>
